@@ -128,7 +128,7 @@ a:focus {
 
 img {
 	height: 300px;
-	width: 300px;
+	width: 100%;
 }
 
 .buttons {
@@ -189,6 +189,10 @@ button:hover:not(.outline) {
 	color: var(--on-primary);
 	border-radius: 10px;
 	padding: 30px;
+}
+
+[data-theme='dark'] .text-box{
+	color: #fff;
 }
 
 p {
