@@ -7,21 +7,35 @@ const image1 = document.querySelector('#image1');
 const image2 = document.querySelector('#image2');
 const image3 = document.querySelector('#image3');
 const toggleText = document.querySelector('.toggle-text');
+const htmlEl = document.documentElement;
 
+if (localStorage.getItem('theme') === 'dark') {
+	darkThemeChange();
+	themeInput.click();
+}
 themeInput.addEventListener('click', () => {
-	const htmlEl = document.documentElement;
 	if (htmlEl.dataset.theme !== 'dark') {
-		toggleText.textContent = 'Dark Mode';
-		htmlEl.setAttribute('data-theme', 'dark');
-		imageThemeChange('dark');
-		document.querySelector('.fa-sun').className = 'fas fa-moon';
+		darkThemeChange();
 	} else {
-		toggleText.textContent = 'Light Mode';
-		htmlEl.removeAttribute('data-theme');
-		imageThemeChange('light');
-		document.querySelector('.fa-moon').className = 'fas fa-sun';
+		lightThemeChange();
 	}
 });
+
+function darkThemeChange() {
+	htmlEl.setAttribute('data-theme', 'dark');
+	imageThemeChange('dark');
+	toggleText.textContent = 'Dark Mode';
+	document.querySelector('.fa-sun').className = 'fas fa-moon';
+	localStorage.setItem('theme', 'dark');
+}
+
+function lightThemeChange() {
+	toggleText.textContent = 'Light Mode';
+	imageThemeChange('light');
+	htmlEl.removeAttribute('data-theme');
+	document.querySelector('.fa-moon').className = 'fas fa-sun';
+	localStorage.setItem('theme', 'light');
+}
 
 function imageThemeChange(theme) {
 	image1.src = `img/undraw_proud_coder_${theme}.svg`;

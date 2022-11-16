@@ -380,6 +380,16 @@ ul {
 @media (max-width: 767px) {
 	nav {
 		padding: 0;
+		height: 55px;
+		box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	}
+
+	.nav__burger {
+		top: 10px;
+	}
+
+	.theme-switch-wrapper {
+		top: 10px;
 	}
 
 	nav.active {
@@ -395,7 +405,7 @@ ul {
 		display: flex;
 		flex-direction: column;
 		gap: 25px;
-		background-color: #fff;
+		background-color: var(--on-primary);
 		transition: all 0.3s ease;
 	}
 
@@ -442,12 +452,13 @@ ul {
 	visibility: visible;
 	transform: translateX(0);
 	height: auto;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 .nav__burger.active {
 	left: 40%;
 	z-index: 20;
-	top: 40px;
+	top: 20px;
 }
 
 .nav__burger.active span:nth-child(2) {
